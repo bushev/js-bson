@@ -1,3 +1,5 @@
+import * as fastSafeStringify from 'fast-safe-stringify';
+
 import { Binary } from './binary';
 import type { Document } from './bson';
 import { Code } from './code';
@@ -473,7 +475,7 @@ function stringify(
   });
 
   const doc = serializeValue(value, serializeOptions);
-  return JSON.stringify(doc, replacer as Parameters<JSON['stringify']>[1], space);
+  return fastSafeStringify.default(doc, replacer as (key: string, value: any) => any, space);
 }
 
 /**
@@ -497,7 +499,7 @@ function EJSONserialize(value: any, options?: EJSONOptions): Document {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function EJSONdeserialize(ejson: Document, options?: EJSONOptions): any {
   options = options || {};
-  return parse(JSON.stringify(ejson), options);
+  return parse(fastSafeStringify.default(ejson), options);
 }
 
 /** @public */

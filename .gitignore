@@ -8,7 +8,6 @@ node_modules/
 
 output
 build
-dist
 .bin
 npm-debug.log
 builderror.log
@@ -18,7 +17,6 @@ bson.sublime-workspace
 
 .vscode
 
-/lib
 .nyc_output/
 coverage/
 *.d.ts
@@ -33,3 +31,5 @@ docs/public
 .nvmrc
 
 benchmarks.json
+
+.idea

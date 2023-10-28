@@ -113,5 +113,8 @@
     "check:coverage": "nyc --check-coverage npm run check:node",
     "prepare": "node etc/prepare.js",
     "release": "standard-version -i HISTORY.md"
+  },
+  "dependencies": {
+    "fast-safe-stringify": "2.1.1"
   }
 }
